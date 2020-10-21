@@ -1,6 +1,7 @@
 if &compatible
   set nocompatible
-  endif
+endif
+
   " Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
@@ -11,14 +12,13 @@ if dein#load_state('~/.cache/dein')
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
  endif
- 
- call dein#add('Shougo/neocomplete.vim')
+
+ call dein#load_toml('~/.config/nvim/dein.toml',{'lazy':0})
+ call dein#load_toml('~/.config/nvim/dein_lazy.toml',{'lazy':1})
+
  call dein#add('vim-airline/vim-airline')
  call dein#add('vim-airline/vim-airline-themes')
-
- call dein#add('justmao945/vim-clang')
- "call dein#load_toml('~/.dein.toml' ,      {'lazy': 0})
- "call dein#load_toml('~/.dein_lazy.toml' , {'lazy': 1})
+ call dein#add('rafi/awesome-vim-colorschemes') 
  call dein#end()
  call dein#save_state()
 endif
@@ -26,6 +26,8 @@ endif
 if dein#check_install()
   call dein#install()
 endif
+
+let g:deoplete#enable_at_startup = 1
 
 filetype plugin indent on
 syntax enable
@@ -45,17 +47,22 @@ set ruler
 set number
 
 "行番号の色や現在行の設定
-autocmd ColorScheme * highlight LineNr ctermfg=12
-autocmd ColorScheme * highlight Normal ctermbg=235
-highlight CursorLineNr ctermbg=4 ctermfg=0
+"autocmd ColorScheme * highlight LineNr ctermfg=12
+autocmd ColorScheme * highlight Normal ctermbg=0
+"autocmd ColorScheme * highlight Normal ctermbg=233
+"highlight CursorLineNr ctermbg=4 ctermfg=0
 set cursorline
 highlight clear CursorLine
 
 "色
-let g:molokai_original = 1
 set background=dark
-"カラーテーマは入れたら有効にしてください
-colorscheme hyper
+let g:airline_theme='dark'
+"let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 
+"colorscheme hybrid 
+colorscheme onedark 
+"colorscheme space-vim-dark 
+
 
 "オートインデント
 set autoindent
@@ -101,7 +108,7 @@ set wildmode=list:longest,full
 set showcmd
 
 "クリップボードの共有
-set clipboard=unnamed,autoselect
+set clipboard+=unnamed
 
 "カーソル移動で行をまたげるようにする
 set whichwrap=b,s,h,l,<,>,~,[,]
@@ -126,7 +133,7 @@ set hidden
 "バックアップファイルを作成しない
 set nobackup
 "バックアップファイルのディレクトリ指定
-set backupdir=$HOME/.vim/backup
+"set backupdir=$HOME/.vim/backup
 "アンドゥファイルを作成しない
 set noundofile
 "アンドゥファイルのディレクトリ指定
@@ -169,10 +176,9 @@ nnoremap Y y$
 "ESCキー2度押しでハイライトの切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
-"かっこの補完  
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+"NERDTree 操作
+nnoremap <silent><C-t> :NERDTreeToggle<CR>
+
 "ペースト時に自動インデントで崩れるのを防ぐ
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
@@ -186,6 +192,15 @@ if &term =~ "xterm"
 
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
+
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+"inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left>
+"inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left>
+
+"inoremap ( () <Left>
+"inoremap [ [] <Left>
 " unicode symbols
 "let g:airline_left_sep = '»'
 "let g:airline_left_sep = '▶'
@@ -224,64 +239,3 @@ let g:airline_right_alt_sep = '⮃  '
 "let g:airline_symbols.linenr = '⭡  '
 
 filetype plugin indent on
-
-" 'Shougo/neocomplete.vim' {{{
-  let g:neocomplete#enable_at_startup = 1
-
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {} 
-  endif
-  let g:neocomplete#force_overwrite_completefunc = 1
-  let g:neocomplete#force_omni_input_patterns.c =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-  let g:neocomplete#force_omni_input_patterns.cpp =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-" }}}
-
-" 'justmao945/vim-clang' {{{
-
-  " disable auto completion for vim-clang
-  let g:clang_auto =1 
-  " default 'longest' can not work with neocomplete
-  let g:clang_c_completeopt   = 'menuone'
-  let g:clang_cpp_completeopt = 'menuone'
-
-  function! s:get_latest_clang(search_path)
-     let l:filelist = split(globpath(a:search_path, 'clang-*'), '\n')
-     let l:clang_exec_list = []
-     for l:file in l:filelist
-        if l:file =~ '^.*clang-\d\.\d$'
-            call add(l:clang_exec_list, l:file)
-        endif
-     endfor
-     if len(l:clang_exec_list)
-        return reverse(l:clang_exec_list)[0]
-     else
-        return 'clang'
-     endif
-  endfunction
-
-  function! s:get_latest_clang_format(search_path)
-     let l:filelist = split(globpath(a:search_path, 'clang-format-*'), '\n')
-     let l:clang_exec_list = []
-     for l:file in l:filelist
-        if l:file =~ '^.*clang-format-\d\.\d$'
-            call add(l:clang_exec_list, l:file)
-        endif
-     endfor
-      if len(l:clang_exec_list)
-        return reverse(l:clang_exec_list)[0]
-      else
-         return 'clang-format'
-      endif
-  endfunction
-
-  let g:clang_exec = s:get_latest_clang('/usr/bin')
-  let g:clang_format_exec = s:get_latest_clang_format('/usr/bin')
-
-  let g:clang_c_options = '-std=c11'
-  let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-
-
-" }}}

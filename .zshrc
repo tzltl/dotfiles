@@ -129,7 +129,7 @@ google() {
         opt='search?num=100'
         opt="${opt}&q=${str}"
     fi
-    open -a Firefox\ Developer\ Edition http://www.google.com/$opt
+    open -a Google\ Chrome http://www.google.com/$opt
 }
 
 # w3mで検索
@@ -146,7 +146,6 @@ function search() {
     w3m http://www.google.co.jp/$opt
 }
 
-
 qiita() {
     local str opt
     if [ $# != 0 ]; then
@@ -160,6 +159,18 @@ qiita() {
         open -a Firefox\ Developer\ Edition http://qiita.com/$opt
 
 }
+
+function zle-line-init zle-keymap-select {
+    VIM_NORMAL="%F{208}%k%f%K{208}%F{black} % NORMAL %F{208}%k%f"
+    VIM_INSERT="%F{075}%k%f%K{075}%F{black} % INSERT %F{075}%k%f"
+    RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH=/Applications/MATLAB_R2020a.app/bin:$PATH
 eval "$(pyenv init -)"
