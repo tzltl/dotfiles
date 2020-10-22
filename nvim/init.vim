@@ -45,6 +45,7 @@ scriptencoding utf-8
 set ruler
 "行番号表示
 set number
+set relativenumber
 
 "行番号の色や現在行の設定
 "autocmd ColorScheme * highlight LineNr ctermfg=12
