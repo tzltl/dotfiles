@@ -2,8 +2,8 @@
 
 dotfileをまとめました．
 
-・zsh (oh-my-zsh)
-・tmux
-・neovim
-  - Plugin manager: dein
-・powerline
+-zsh (oh-my-zsh)
+-tmux
+-neovim
+   Plugin manager: dein
+-powerline
