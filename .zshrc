@@ -156,7 +156,7 @@ qiita() {
         opt='search?num=100'
         opt="${opt}&q=${str}"
     fi
-        open -a Firefox\ Developer\ Edition http://qiita.com/$opt
+        open -a Google\ Chrome Edition http://qiita.com/$opt
 
 }
 

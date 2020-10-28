@@ -16,8 +16,6 @@ if dein#load_state('~/.cache/dein')
  call dein#load_toml('~/.config/nvim/dein.toml',{'lazy':0})
  call dein#load_toml('~/.config/nvim/dein_lazy.toml',{'lazy':1})
 
- call dein#add('vim-airline/vim-airline')
- call dein#add('vim-airline/vim-airline-themes')
  call dein#add('rafi/awesome-vim-colorschemes') 
  call dein#end()
  call dein#save_state()
@@ -32,7 +30,7 @@ let g:deoplete#enable_at_startup = 1
 filetype plugin indent on
 syntax enable
 
-let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 set t_Co=256
 "エンコーディング
 set encoding=utf-8
@@ -57,13 +55,11 @@ highlight clear CursorLine
 
 "色
 set background=dark
-let g:airline_theme='dark'
 "let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 
 "colorscheme hybrid 
 colorscheme onedark 
 "colorscheme space-vim-dark 
-
 
 "オートインデント
 set autoindent
@@ -143,10 +139,7 @@ set undodir=$HOME/.vim/backup
 set noswapfile
 
 
-
 """"""""""""""""""""""""""""""
-
-
 
 "カーソル移動
 nnoremap j gj
@@ -202,41 +195,4 @@ inoremap (<Enter> ()<Left>
 
 "inoremap ( () <Left>
 "inoremap [ [] <Left>
-" unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.crypt = '🔒'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.maxlinenr = '☰'
-"let g:airline_symbols.maxlinenr = ''
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.spell = 'Ꞩ'
-"let g:airline_symbols.notexists = '∄'
-"let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = ''
-
-" old vim-powerline symbols
-"let g:airline_left_sep = '⮀'
-"let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂  '
-let g:airline_right_alt_sep = '⮃  '
-"let g:airline_symbols.branch = '⭠  '
-"let g:airline_symbols.readonly = '⭤  '
-"let g:airline_symbols.linenr = '⭡  '
-
 filetype plugin indent on
