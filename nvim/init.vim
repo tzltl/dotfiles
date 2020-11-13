@@ -86,8 +86,7 @@ set noincsearch
 set hlsearch
 "大文字と小文字を区別しない
 set ignorecase
-"大文字と小文字が混在した検索のみ大文字と小文字を区別する
-set smartcase
+"大文字と小文字が混在した検索のみ大文字と小文字を区別する set smartcase
 "最後尾になったら先頭に戻る
 set wrapscan
 "置換の時gオプションをデフォルトで有効にする
@@ -148,10 +147,10 @@ nnoremap gj j
 nnoremap gk k
 nnoremap <down> gj
 nnoremap <up> gk
-noremap <S-h> ^
-noremap <S-j> }
-noremap <S-k> {
-noremap <S-l> $
+" noremap <S-h> ^
+" noremap <S-j> }
+" noremap <S-k> {
+" noremap <S-l> $
 
 "jjでノーマルモード
 inoremap jj <esc>
