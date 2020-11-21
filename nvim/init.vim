@@ -7,7 +7,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
+ " call dein#add('Shougo/deoplete.nvim')
  if !has('nvim')
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
@@ -25,7 +25,7 @@ if dein#check_install()
   call dein#install()
 endif
 
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1   
 
 filetype plugin indent on
 syntax enable
@@ -57,9 +57,9 @@ highlight clear CursorLine
 set background=dark
 "let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 
-"colorscheme hybrid 
-colorscheme onedark 
-"colorscheme space-vim-dark 
+" colorscheme hybrid 
+colorscheme rdark-terminal2 
+" colorscheme space-vim-dark 
 
 "オートインデント
 set autoindent
@@ -86,7 +86,8 @@ set noincsearch
 set hlsearch
 "大文字と小文字を区別しない
 set ignorecase
-"大文字と小文字が混在した検索のみ大文字と小文字を区別する set smartcase
+"大文字と小文字が混在した検索のみ大文字と小文字を区別する
+set smartcase
 "最後尾になったら先頭に戻る
 set wrapscan
 "置換の時gオプションをデフォルトで有効にする
@@ -137,6 +138,12 @@ set undodir=$HOME/.vim/backup
 "スワップファイルを作成しない
 set noswapfile
 
+" ウィンドウを右に開く
+set splitright
+" ウィンドウを下に開く
+set splitbelow
+
+set noshowmode
 
 """"""""""""""""""""""""""""""
 
