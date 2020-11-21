@@ -34,8 +34,7 @@ set laststatus=2
 set t_Co=256
 "エンコーディング
 set encoding=utf-8
-scriptencoding utf-8
-
+scriptencoding utf-8 
 "vi互換をオフ
 "set nocompatible
 
@@ -47,7 +46,7 @@ set relativenumber
 
 "行番号の色や現在行の設定
 "autocmd ColorScheme * highlight LineNr ctermfg=12
-autocmd ColorScheme * highlight Normal ctermbg=0
+autocmd ColorScheme * highlight Normal ctermbg=232
 "autocmd ColorScheme * highlight Normal ctermbg=233
 "highlight CursorLineNr ctermbg=4 ctermfg=0
 set cursorline

@@ -41,7 +41,7 @@
 
 [[plugins]]
 repo='Shougo/defx.nvim'
-depends = 'roxma/nvim-yarp','roxma/vim-hug-neovim-rpc'
+depends = ['roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
 on_i = 1
 hook_add='''
   nnoremap <silent>sf :<C-u>Defx -listed -resume
