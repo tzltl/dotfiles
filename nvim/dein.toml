@@ -44,7 +44,7 @@ repo='Shougo/defx.nvim'
 depends = ['roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
 on_i = 1
 hook_add='''
-  nnoremap <silent>sf :<C-u>Defx -listed -resume
+  nnoremap <silent>ff :<C-u>Defx -listed -resume
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
@@ -118,6 +118,10 @@ hook_add='''
 
 
 [[plugins]]
+repo='overcache/NeoSolarized'
+
+
+[[plugins]]
 repo='roxma/nvim-yarp'
 
 
@@ -138,7 +142,7 @@ repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''   
     set laststatus=2
-    let g:airline_theme='badwolf'
+    let g:airline_theme='deus'
     let g:airline_powerline_fonts=1
     let g:airline#extensions#tabline#enabled=1
     let g:airline#extensions#tabline#buffer_idx_mode=1
