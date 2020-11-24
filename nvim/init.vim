@@ -7,7 +7,6 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
- " call dein#add('Shougo/deoplete.nvim')
  if !has('nvim')
   call dein#add('roxma/nvim-yarp')
   call dein#add('roxma/vim-hug-neovim-rpc')
@@ -44,7 +43,7 @@ set relativenumber
 
 if exists("&termguicolors") && exists("&winblend")
   let g:neosolarized_termtrans=1
-  "runtime ./colors/solarized_true.vim
+  "runtime ./colors/Solarized.vim
   set termguicolors
   set winblend=0
   set wildoptions=pum
@@ -56,7 +55,8 @@ set cursorline
 highlight clear CursorLine
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
-autocmd ColorScheme * highlight Normal guibg=#000011
+autocmd ColorScheme * highlight Normal guibg=#000011 
+
 
 "色
 set background=dark
@@ -155,13 +155,10 @@ nnoremap gj j
 nnoremap gk k
 nnoremap <down> gj
 nnoremap <up> gk
-" noremap <S-h> ^
-" noremap <S-j> }
-" noremap <S-k> {
-" noremap <S-l> $
 
 "jjでノーマルモード
 inoremap jj <esc>
+inoremap ;; <esc>
 
 "ノーマルモードのまま改行
 nnoremap <CR> A<CR><ESC>
@@ -176,9 +173,6 @@ nnoremap Y y$
 
 "ESCキー2度押しでハイライトの切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
-
-"NERDTree 操作
-nnoremap <silent><C-t> :NERDTreeToggle<CR>
 
 "ペースト時に自動インデントで崩れるのを防ぐ
 if &term =~ "xterm"
@@ -195,11 +189,7 @@ if &term =~ "xterm"
 endif
 
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
-"inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left>
-"inoremap (<Enter> ()<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left>
 
-"inoremap ( () <Left>
-"inoremap [ [] <Left>
 filetype plugin indent on
