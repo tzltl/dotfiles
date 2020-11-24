@@ -41,26 +41,25 @@ set ruler
 set number
 set relativenumber
 
+"色
+set background=dark
+colorscheme Neosolarized
+
+
+"行番号の色や現在行の設定
+set cursorline
+highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+"highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
+"autocmd ColorScheme * highlight Normal guibg=#000011
+
 if exists("&termguicolors") && exists("&winblend")
   let g:neosolarized_termtrans=1
-  "runtime ./colors/Solarized.vim
+  runtime ./colors/Solarized_true.vim
   set termguicolors
   set winblend=0
   set wildoptions=pum
   set pumblend=5
 endif
-
-"行番号の色や現在行の設定
-set cursorline
-highlight clear CursorLine
-highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
-autocmd ColorScheme * highlight Normal guibg=#000011 
-
-
-"色
-set background=dark
-colorscheme NeoSolarized
 
 "オートインデント
 set autoindent
