@@ -32,8 +32,6 @@ set t_Co=256
 "エンコーディング
 set encoding=utf-8
 scriptencoding utf-8 
-"vi互換をオフ
-"set nocompatible
 
 "カーソル位置表示
 set ruler
@@ -45,18 +43,15 @@ set relativenumber
 set background=dark
 colorscheme heraldish
 
-
 set termguicolors
-"行番号の色や現在行の設定
 set cursorline
-"highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight Normal guibg=NONE
-" highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#88ccc5
-" highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#00ffff
-" highlight LineNr guifg=#00ffff guibg=NONE
-" highlight LineNr guifg=#00ffff guibg=#00ffff
-"hi CocErrorLine guibg=red
-hi CocErrorHighlight guisp=#ff0000 guibg=red
+highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#000011 guibg=NONE
+highlight CursorLine guibg=#013220
+highlight CursorLineNr guibg=NONE
+highlight SignColumn guibg=none 
+highlight cocerrorhighlight guisp=#ff0000 guibg=red 
 
 "オートインデント
 set autoindent
@@ -168,7 +163,8 @@ nnoremap r <C-r>
 nnoremap Y y$
 
 "ESCキー2度押しでハイライトの切り替え
-nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+" nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+nnoremap <silent><Esc> :noh<CR>
 
 "ペースト時に自動インデントで崩れるのを防ぐ
 if &term =~ "xterm"
@@ -187,5 +183,3 @@ endif
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left>
 inoremap (<Enter> ()<Left>
-
-filetype plugin indent on

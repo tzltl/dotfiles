@@ -1,9 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/tzltl/.config/nvim'
+let g:netrw_dirhist_2='/Users/tzltl/.config'
+let g:netrw_dirhist_1='/Users/tzltl/.config/nvim'
+let g:netrw_dirhist_0='/Users/tzltl/.config'
+let g:netrw_dirhist_9='/Users/tzltl/.config/nvim'
+let g:netrw_dirhist_8='/Users/tzltl/.config'
 let g:netrw_dirhist_7='/Users/tzltl/dev/atcoder'
 let g:netrw_dirhist_6='/Users/tzltl/dev/atcoder/cppcode'
 let g:netrw_dirhist_5='/Users/tzltl/dev/atcoder'
 let g:netrw_dirhist_4='/Users/tzltl/dev'
-let g:netrw_dirhist_3='/Users/tzltl/dev/atcoder/cppcode'
-let g:netrw_dirhist_2='/Users/tzltl/dev/atcoder'
-let g:netrw_dirhist_1='/Users/tzltl/dev'
