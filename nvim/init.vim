@@ -51,7 +51,10 @@ highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#000011 guibg=NONE
 highlight CursorLine guibg=#013220
 highlight CursorLineNr guibg=NONE
 highlight SignColumn guibg=none 
-highlight cocerrorhighlight guisp=#ff0000 guibg=red 
+" highlight CocErrorHighlight guisp=#ff0000 guibg=red 
+let &t_Cs = "\e[6m"
+let &t_Ce = "\e[24m"
+highlight CocErrorHighlight gui=undercurl,bold guifg=#ff0000
 
 "オートインデント
 set autoindent
