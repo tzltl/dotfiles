@@ -43,23 +43,20 @@ set relativenumber
 
 "色
 set background=dark
-colorscheme Neosolarized
+colorscheme heraldish
 
 
+set termguicolors
 "行番号の色や現在行の設定
 set cursorline
-highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-"highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
-"autocmd ColorScheme * highlight Normal guibg=#000011
-
-if exists("&termguicolors") && exists("&winblend")
-  let g:neosolarized_termtrans=1
-  runtime ./colors/Solarized_true.vim
-  set termguicolors
-  set winblend=0
-  set wildoptions=pum
-  set pumblend=5
-endif
+"highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+highlight Normal guibg=NONE
+" highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#88ccc5
+" highlight LineNr cterm=none ctermfg=240 guifg=#2b506e guibg=#00ffff
+" highlight LineNr guifg=#00ffff guibg=NONE
+" highlight LineNr guifg=#00ffff guibg=#00ffff
+"hi CocErrorLine guibg=red
+hi CocErrorHighlight guisp=#ff0000 guibg=red
 
 "オートインデント
 set autoindent
