@@ -38,6 +38,7 @@ set ruler
 "行番号表示
 set number
 set relativenumber
+set mouse=a
 
 "色
 set background=dark
@@ -46,7 +47,7 @@ colorscheme heraldish
 set termguicolors
 set cursorline
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight Normal guibg=NONE
+highlight Normal guibg=NONE guifg=#dedede
 highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#000011 guibg=NONE
 highlight CursorLine guibg=#013220
 highlight CursorLineNr guibg=NONE
