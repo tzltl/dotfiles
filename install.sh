@@ -2,4 +2,4 @@
 
 cp .zshrc ~/
 cp .tmux.conf ~/
-cp -r nvim ~/.config/
+cp -r ./nvim ~/.config/
