@@ -8,7 +8,8 @@ dotfileをまとめました．
   - [tmux-powerline](https://github.com/erikw/tmux-powerline)
 - NeoVim
   - [dein](https://github.com/Shougo/dein.vim) : Vim plugin manager
-  - [Vim-airline](https://github.com/vim-airline/vim-airline)
+  - [vim-powerline](https://github.com/Lokaltog/vim-powerline)
+  - [vim-airline](https://github.com/vim-airline/vim-airline)
 
 ---
 
