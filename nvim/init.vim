@@ -139,7 +139,7 @@ set splitright
 " ウィンドウを下に開く
 set splitbelow
 
-set noshowmode
+" set noshowmode
 
 """"""""""""""""""""""""""""""
 
@@ -157,11 +157,6 @@ inoremap ;; <esc>
 
 "ノーマルモードのまま改行
 nnoremap <CR> A<CR><ESC>
-"ノーマルモードのままスペース
-nnoremap <space> i<space><esc>
-
-"rだけでリドゥ
-nnoremap r <C-r>
 
 "Yで行末までヤンク
 nnoremap Y y$

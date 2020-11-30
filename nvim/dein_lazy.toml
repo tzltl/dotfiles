@@ -10,20 +10,15 @@ hook_source = '''
 depends = ['deoplete.nvim']
 
 
-
 [[plugins]]
 repo = "rhysd/vim-clang-format"
 on_ft = "cpp"
 hook_add = ''' 
 colorscheme space-vim-dark
-
 let g:clang_format#code_style = 'Google'
-
 autocmd BufWrite *.{cpp} :ClangFormat 
-
 command! C !g++ %:S -o %:r:S 
 '''
-
 
 #[[plugins]]
 #repo = 'yuezk/vim-js'
@@ -34,16 +29,26 @@ command! C !g++ %:S -o %:r:S
 #repo = 'maxmellon/vim-jsx-pretty'
 #on_ft = ['javascript', 'javascript.jsx','typescript', 'typescript.tsx','typescriptreact']
 
+
 [[plugins]]
 repo='leafgarland/typescript-vim'
 on_ft = ['typescript', 'typescript.tsx']
+
 
 [[plugins]]
 repo='peitalin/vim-jsx-typescript'
 on_ft = ['typescript', 'typescript.tsx']
 
 
-
 [[plugins]]
 repo = "daeyun/vim-matlab"
 on_ft = "m"
+
+
+[[plugins]]
+repo='skanehira/preview-markdown.vim'
+on_ft='md'
+hook_add='''
+let g:preview_markdown_parser='glow'
+let g:preview_markdown_vertical=1
+'''
