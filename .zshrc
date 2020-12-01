@@ -163,8 +163,8 @@ qiita() {
 }
 
 function zle-line-init zle-keymap-select {
-    VIM_NORMAL="%F{106}❮%F{106} NORMAL"
-    VIM_INSERT="%F{075}❮%F{075} INSERT"
+    VIM_NORMAL="%F{076}❮%F{076} NORMAL"
+    VIM_INSERT="%F{037}❮%F{037} INSERT"
     RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
     RPS2=$RPS1
     zle reset-prompt

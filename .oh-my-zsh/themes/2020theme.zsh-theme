@@ -111,10 +111,10 @@ prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment 234 76
+      prompt_segment 23 76
       # prompt_segment 220 0
     else
-      prompt_segment 234 37
+      prompt_segment 23 37
     fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
@@ -156,12 +156,12 @@ prompt_bzr() {
     status_all=$(echo -n "$bzr_status" | head -n1 | wc -m)
     revision=$(bzr log -r-1 --log-format line | cut -d: -f1)
     if [[ $status_mod -gt 0 ]] ; then
-      prompt_segment 234 76 "bzr@$revision ✚"
+      prompt_segment 23 76 "bzr@$revision ✚"
     else
       if [[ $status_all -gt 0 ]] ; then
-        prompt_segment 234 220 "bzr@$revision"
+        prompt_segment 23 220 "bzr@$revision"
       else
-        prompt_segment 234 37 "bzr@$revision"
+        prompt_segment 23 37 "bzr@$revision"
       fi
     fi
   fi
@@ -174,15 +174,15 @@ prompt_hg() {
     if $(hg prompt >/dev/null 2>&1); then
       if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
         # if files are not added
-        prompt_segment 234 202
+        prompt_segment 23 202
         st='±'
       elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
-        prompt_segment 234 76
+        prompt_segment 23 76
         st='±'
       else
         # if working copy is clean
-        prompt_segment 234 67
+        prompt_segment 23 67
       fi
       echo -n $(hg prompt "☿ {rev}@{branch}") $st
     else
@@ -190,13 +190,13 @@ prompt_hg() {
       rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
       branch=$(hg id -b 2>/dev/null)
       if `hg st | grep -q "^\?"`; then
-        prompt_segment 234 202
+        prompt_segment 23 202
         st='±'
       elif `hg st | grep -q "^[MA]"`; then
-        prompt_segment 234 76
+        prompt_segment 23 76
         st='±'
       else
-        prompt_segment 234 67
+        prompt_segment 23 67
       fi
       echo -n "☿ $rev@$branch" $st
     fi
@@ -240,7 +240,7 @@ prompt_aws() {
   [[ -z "$AWS_PROFILE" || "$SHOW_AWS_PROMPT" = false ]] && return
   case "$AWS_PROFILE" in
     *-prod|*production*) prompt_segment 202 220  "AWS: $AWS_PROFILE" ;;
-    *) prompt_segment 234 0 "AWS: $AWS_PROFILE" ;;
+    *) prompt_segment 23 0 "AWS: $AWS_PROFILE" ;;
   esac
 }
 
