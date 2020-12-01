@@ -1,7 +1,5 @@
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
-#
-#
 # agnoster's Theme - https://gist.github.com/3712874
 # A Powerline-inspired theme for ZSH
 #
@@ -81,7 +79,7 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "%{%f%} "
+  echo -n "%{%f%}"
   CURRENT_BG=''
 }
 
@@ -91,7 +89,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
+    prompt_segment 0 default "%(!.%{%F{220}%}.)%n@%m"
   fi
 }
 
@@ -108,15 +106,16 @@ prompt_git() {
   }
   local ref dirty mode repo_path
 
-  if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
+   if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]]; then
     repo_path=$(git rev-parse --git-dir 2>/dev/null)
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
-#    if [[ -n $dirty ]]; then
-      prompt_segment yellow black
-#    else
-#      prompt_segment green $CURRENT_FG
-#    fi
+    if [[ -n $dirty ]]; then
+      prompt_segment 234 76
+      # prompt_segment 220 0
+    else
+      prompt_segment 234 37
+    fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
       mode=" <B>"
@@ -132,10 +131,8 @@ prompt_git() {
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' get-revision true
     zstyle ':vcs_info:*' check-for-changes true
-    zstyle ':vcs_info:*' stagedstr '🙆'
-#    zstyle ':vcs_info:*' stagedstr '✚'
-    zstyle ':vcs_info:*' unstagedstr '💻'
-#    zstyle ':vcs_info:*' unstagedstr '●'
+    zstyle ':vcs_info:*' stagedstr '✚'
+    zstyle ':vcs_info:*' unstagedstr '±'
     zstyle ':vcs_info:*' formats ' %u%c'
     zstyle ':vcs_info:*' actionformats ' %u%c'
     vcs_info
@@ -159,12 +156,12 @@ prompt_bzr() {
     status_all=$(echo -n "$bzr_status" | head -n1 | wc -m)
     revision=$(bzr log -r-1 --log-format line | cut -d: -f1)
     if [[ $status_mod -gt 0 ]] ; then
-      prompt_segment yellow black "bzr@$revision ✚"
+      prompt_segment 234 76 "bzr@$revision ✚"
     else
       if [[ $status_all -gt 0 ]] ; then
-        prompt_segment yellow black "bzr@$revision"
+        prompt_segment 234 220 "bzr@$revision"
       else
-        prompt_segment green black "bzr@$revision"
+        prompt_segment 234 37 "bzr@$revision"
       fi
     fi
   fi
@@ -177,15 +174,15 @@ prompt_hg() {
     if $(hg prompt >/dev/null 2>&1); then
       if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
         # if files are not added
-        prompt_segment red white
+        prompt_segment 234 202
         st='±'
       elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
-        prompt_segment yellow black
+        prompt_segment 234 76
         st='±'
       else
         # if working copy is clean
-        prompt_segment green $CURRENT_FG
+        prompt_segment 234 67
       fi
       echo -n $(hg prompt "☿ {rev}@{branch}") $st
     else
@@ -193,13 +190,13 @@ prompt_hg() {
       rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
       branch=$(hg id -b 2>/dev/null)
       if `hg st | grep -q "^\?"`; then
-        prompt_segment red black
+        prompt_segment 234 202
         st='±'
       elif `hg st | grep -q "^[MA]"`; then
-        prompt_segment yellow black
+        prompt_segment 234 76
         st='±'
       else
-        prompt_segment green $CURRENT_FG
+        prompt_segment 234 67
       fi
       echo -n "☿ $rev@$branch" $st
     fi
@@ -208,14 +205,15 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue $CURRENT_FG '%~'
+  prompt_segment 37 234 '%~'
+  #prompt_segment 69 $CURRENT_FG '%~'
 }
 
 # Virtualenv: current working virtualenv
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment blue black "(`basename $virtualenv_path`)"
+    prompt_segment 69 0 "(`basename $virtualenv_path`)"
   fi
 }
 
@@ -226,41 +224,34 @@ prompt_virtualenv() {
 prompt_status() {
   local -a symbols
 
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{202}%}✘"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{220}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
-  [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
+  [[ -n "$symbols" ]] && prompt_segment 0 default "$symbols"
 }
 
 #AWS Profile:
 # - display current AWS_PROFILE name
-# - displays yellow on red if profile name contains 'production' or
+# - displays 220 on red if profile name contains 'production' or
 #   ends in '-prod'
 # - displays black on green otherwise
 prompt_aws() {
-  [[ -z "$AWS_PROFILE" ]] && return
+  [[ -z "$AWS_PROFILE" || "$SHOW_AWS_PROMPT" = false ]] && return
   case "$AWS_PROFILE" in
-    *-prod|*production*) prompt_segment red yellow  "AWS: $AWS_PROFILE" ;;
-    *) prompt_segment green black "AWS: $AWS_PROFILE" ;;
+    *-prod|*production*) prompt_segment 202 220  "AWS: $AWS_PROFILE" ;;
+    *) prompt_segment 234 0 "AWS: $AWS_PROFILE" ;;
   esac
-}
-
-prompt_datetime() {
-    # prompt_segment white "%F{white} %D{%Y-%m-%d %H:%M:%S"
-    prompt_segment green black "%T %w"
 }
 
 ## Main prompt
 build_prompt() {
+  echo '\n'
   RETVAL=$?
-  echo "
-  "
-  prompt_context
   prompt_status
-  prompt_datetime
   prompt_virtualenv
   prompt_aws
+  prompt_context
   prompt_dir
   prompt_git
   prompt_bzr
@@ -268,5 +259,4 @@ build_prompt() {
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt)'
-
+PROMPT='%{%f%b%k%}$(build_prompt) '

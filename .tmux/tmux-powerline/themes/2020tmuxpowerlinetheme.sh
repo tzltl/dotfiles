@@ -30,8 +30,8 @@ if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 		"lan_ip 234 37 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
 		"wan_ip 234 37" \
 		"vcs_branch 37 234" \
-		"vcs_compare 60 253" \
-		"vcs_staged 64 253" \
+		"vcs_compare 60 234" \
+		"vcs_staged 64 234" \
 		"vcs_modified 34 234" \
 		"vcs_others 245 234" \
 	)
