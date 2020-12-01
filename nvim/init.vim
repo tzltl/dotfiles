@@ -48,8 +48,8 @@ set termguicolors
 set cursorline
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight Normal guibg=NONE guifg=#dedede
-highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=Grey40 guibg=NONE
-highlight CursorLine guibg=#013220
+highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#00afaf guibg=NONE
+highlight CursorLine guibg=#005050
 highlight CursorLineNr guibg=NONE
 highlight SignColumn guibg=none 
 " highlight CocErrorHighlight guisp=#ff0000 guibg=red 

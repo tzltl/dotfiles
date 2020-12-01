@@ -9,7 +9,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="takenoster"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+ZSH_THEME="2020theme"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 # jjでESC
 bindkey "jj" vi-cmd-mode
+bindkey ";;" vi-cmd-mode
 # correct command コマンド訂正
 setopt correct
 
@@ -161,8 +163,8 @@ qiita() {
 }
 
 function zle-line-init zle-keymap-select {
-    VIM_NORMAL="%F{208}%k%f%K{208}%F{black} % NORMAL %F{208}%k%f"
-    VIM_INSERT="%F{075}%k%f%K{075}%F{black} % INSERT %F{075}%k%f"
+    VIM_NORMAL="%F{106}❮%F{106} NORMAL"
+    VIM_INSERT="%F{075}❮%F{075} INSERT"
     RPS1="${${KEYMAP/vicmd/$VIM_NORMAL}/(main|viins)/$VIM_INSERT}"
     RPS2=$RPS1
     zle reset-prompt
