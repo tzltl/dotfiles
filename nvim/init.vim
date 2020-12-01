@@ -48,7 +48,7 @@ set termguicolors
 set cursorline
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight Normal guibg=NONE guifg=#dedede
-highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#000011 guibg=NONE
+highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=Grey40 guibg=NONE
 highlight CursorLine guibg=#013220
 highlight CursorLineNr guibg=NONE
 highlight SignColumn guibg=none 
@@ -139,7 +139,7 @@ set splitright
 " ウィンドウを下に開く
 set splitbelow
 
-" set noshowmode
+set noshowmode
 
 """"""""""""""""""""""""""""""
 
