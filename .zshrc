@@ -117,6 +117,8 @@ function chpwd() { ls -a }
 autoload -U compinit
 compinit
 
+alias n='nvim'
+alias c='clear'
 
 prompt_context(){}
 

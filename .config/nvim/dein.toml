@@ -77,10 +77,6 @@ hook_add='''
 
 
 [[plugins]]
-repo='overcache/NeoSolarized'
-
-
-[[plugins]]
 repo='roxma/nvim-yarp'
 
 
@@ -97,11 +93,15 @@ repo = 'kristijanhusak/defx-icons'
 
 
 [[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
 depends = ['vim-airline-themes']
 hook_add = '''   
     set laststatus=2
-    let g:airline_theme='deus'
+    let g:airline_theme='minimalist'
     let g:airline_powerline_fonts=1
     let g:airline#extensions#tabline#enabled=1
     let g:airline#extensions#tabline#buffer_idx_mode=1
@@ -145,11 +145,10 @@ hook_add = '''
     "let g:airline_symbols.linenr = '⭡  '
 '''
 
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo='petobens/colorish'
+
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
