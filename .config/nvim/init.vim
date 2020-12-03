@@ -47,15 +47,20 @@ colorscheme heraldish
 set termguicolors
 set cursorline
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight Normal guibg=NONE guifg=#dedede
+highlight Normal guibg=NONE guifg=#c0c0c0
 highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#00afaf guibg=NONE
 highlight CursorLine guibg=#005050
 highlight CursorLineNr guibg=NONE
-highlight SignColumn guibg=none 
-" highlight CocErrorHighlight guisp=#ff0000 guibg=red 
+highlight SignColumn guibg=none
+highlight Pmenu  guibg=#000011 guifg=#d0d0d0
+highlight PmenuSel guibg=#00afaf guifg=#1c1c1c
+highlight CocErrorHighlight gui=undercurl,bold guifg=#ff5f5f
+highlight CocErrorSign guifg=#c0c0c0
+highlight CocErrorFloat guifg=#d75f5f
+
 let &t_Cs = "\e[6m"
 let &t_Ce = "\e[24m"
-highlight CocErrorHighlight gui=undercurl,bold guifg=#ff0000
+
 
 "オートインデント
 set autoindent
