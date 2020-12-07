@@ -4,9 +4,9 @@ dotfileをまとめました．
 
 - Z shell (zsh)
   - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
-- tmux
+- [tmux](https://github.com/tmux/tmux)
   - [tmux-powerline](https://github.com/erikw/tmux-powerline)
-- NeoVim
+- [NeoVim](https://github.com/neovim/neovim)
   - [dein](https://github.com/Shougo/dein.vim) : Vim plugin manager
   - [vim-powerline](https://github.com/Lokaltog/vim-powerline)
   - [vim-airline](https://github.com/vim-airline/vim-airline)
@@ -14,6 +14,9 @@ dotfileをまとめました．
 ---
 
 ## Installation (この構成で必要なもの)
+
+以下はmacOS環境下でのコマンドです．  
+環境に応じてパッケージマネージャなど適宜置き換える必要があります．
 
 ### zsh
 
@@ -39,6 +42,13 @@ brew install tmux
 git clone https://github.com/erikw/tmux-powerline.git
 ```
 
+### NeoVim
+
+```sh
+brew install neovim
+pip install pynvim
+```
+
 ### dein.vim
 
 ```sh
@@ -57,7 +67,7 @@ git clone https://github.com/tzltl/dotfiles.git
 ```
 
 cloneしたあと以下のコマンドで上記構成のディレクトリ配下にファイルをコピーします．
-(訳あってシンボリックリンクにはしていません．)
+(あえてシンボリックリンクにはしていません．)
 
 ```sh
 sh ./dotfiles/install.sh
