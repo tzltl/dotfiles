@@ -3,11 +3,11 @@ repo='Shougo/defx.nvim'
 depends = ['roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
 on_i = 1
 hook_add='''
-  nnoremap <silent>ff :<C-u>Defx -listed -resume
+  nnoremap <silent>fi :<C-u>Defx -listed -resume
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
-  nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
+  " nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
   autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
 	  " Define mappings

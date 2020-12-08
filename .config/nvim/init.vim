@@ -38,6 +38,7 @@ set ruler
 "行番号表示
 set number
 set relativenumber
+"マウス操作
 set mouse=a
 
 "色
@@ -57,9 +58,9 @@ highlight PmenuSel guibg=#00afaf guifg=#1c1c1c
 highlight CocErrorHighlight gui=undercurl,bold guifg=#ff5f5f
 highlight CocErrorSign guifg=#c0c0c0
 highlight CocErrorFloat guifg=#d75f5f
-
-let &t_Cs = "\e[6m"
-let &t_Ce = "\e[24m"
+highlight DefxIconsDirectory guifg=#87afff
+highlight Defx_filename_directory guifg=#00afaf
+highlight Search guibg=#5fafaf
 
 
 "オートインデント
@@ -158,6 +159,7 @@ nnoremap <up> gk
 
 "jjでノーマルモード
 inoremap jj <esc>
+";;でノーマルモード
 inoremap ;; <esc>
 
 "ノーマルモードのまま改行
@@ -184,6 +186,7 @@ if &term =~ "xterm"
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
+"かっこの補完
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left>
 inoremap (<Enter> ()<Left>
