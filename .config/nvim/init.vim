@@ -43,25 +43,32 @@ set mouse=a
 
 "色
 set background=dark
-colorscheme heraldish
+" colorscheme heraldish
+colorscheme kuroi
 
 set termguicolors
 set cursorline
+highlight EndOfBuffer guibg=NONE
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight Normal guibg=NONE guifg=#c0c0c0
+highlight Normal ctermbg=NONE guibg=NONE guifg=#c0c0c0
 highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#00afaf guibg=NONE
-highlight CursorLine guibg=#005050
-highlight CursorLineNr guibg=NONE
-highlight SignColumn guibg=none
+" highlight CursorLine guibg=#005050
+highlight CursorLineNr guibg=NONE guifg=#5fafff
+highlight SignColumn guibg=NONE
 highlight Pmenu  guibg=#000011 guifg=#d0d0d0
-highlight PmenuSel guibg=#00afaf guifg=#1c1c1c
+highlight PmenuSel guifg=#00afaf guibg=#1c1c1c
 highlight CocErrorHighlight gui=undercurl,bold guifg=#ff5f5f
 highlight CocErrorSign guifg=#c0c0c0
 highlight CocErrorFloat guifg=#d75f5f
-highlight DefxIconsDirectory guifg=#87afff
-highlight Defx_filename_directory guifg=#00afaf
-highlight Search guibg=#5fafaf
+" highlight DefxIconsDirectory guifg=#87afff
+" highlight Defx_filename_directory guifg=#00afaf
+" highlight Search guibg=#5fafaf
 
+"""""""""""""""""  TeX 
+" highlight Special guifg=#afaf00
+" highlight texType guifg=#afd700
+" highlight Statement guifg=#87afd7
+"""""""""""""""""""""""
 
 "オートインデント
 set autoindent

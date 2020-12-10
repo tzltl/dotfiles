@@ -151,6 +151,10 @@ repo='petobens/colorish'
 
 
 [[plugins]]
+repo='aonemd/kuroi.vim'
+
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 merged = '0'
 build = './install.sh nightly'
