@@ -56,6 +56,18 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 sh ./installer.sh ~/.cache/dein
 ```
 
+### fzf.vim
+
+```sh
+brew install fzf
+```
+
+Ag (Silver Searcher)も使うなら
+
+```sh
+brew install the_silver_searcher
+```
+
 ---
 
 ## ローカルにダウンロード
