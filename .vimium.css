@@ -1,0 +1,115 @@
+/* Custom CSS for Vimium UI(Vimium: Internet Browser Plugin in Firefox, Google Chrome)
+ * "Vimium" -> "Vimium Options" -> click "Show Advanced Options" -> copy entire this file & past into "CSS for Vimium UI"*/
+
+#vimiumHintMarkerContainer div.internalVimiumHintMarker, #vimiumHintMarkerContainer div.vimiumHintMarker {
+  padding: 3px 4px;
+  background: #000011;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#vimiumHintMarkerContainer div span {
+  color: #c0c0c0;
+  text-shadow: none;
+}
+
+#vimiumHintMarkerContainer div > .matchingCharacter {
+  opacity: 0.4;
+}
+
+#vimiumHintMarkerContainer div > .matchingCharacter ~ span {
+  color: hotpink;
+}
+
+@keyframes show {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#vomnibar .vomnibarSearchArea,
+#vomnibar input {
+  color: #c0c0c0;
+  background: transparent;
+  border: none;
+  opacity: 0.1;
+}
+
+#vomnibar .vomnibarSearchArea {
+  padding: 10px 30px;
+}
+
+#vomnibar input {
+  padding: 0;
+}
+
+#vomnibar ul {
+  padding: 0;
+  background: #000011;
+  border-top: 1px solid #333;
+  opacity: 0.1;
+}
+
+#vomnibar li {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+#vomnibar li .vomnibarTopHalf,
+#vomnibar li .vomnibarBottomHalf {
+  padding: 3px 0;
+}
+
+#vomnibar li .vomnibarSource {
+  color: #aaa;
+}
+
+#vomnibar li em,
+#vomnibar li .vomnibarTitle {
+  color: #aaa;
+}
+
+#vomnibar li .vomnibarUrl {
+  color: #777;
+}
+
+#vomnibar li .vomnibarMatch {
+  color: #c0c0c0;
+  font-weight: normal;
+  opacity: 0.1;
+}
+
+#vomnibar li .vomnibarTitle .vomnibarMatch {
+  color: #c0c0c0;
+  opacity: 0.1;
+}
+
+#vomnibar li.vomnibarSelected {
+  background-color: #333;
+}
+
+div.vimiumHUD {
+  background: #000011;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  opacity: 0.3;
+}
+
+div.vimiumHUD span#hud-find-input,
+div.vimiumHUD .vimiumHUDSearchAreaInner {
+  color: #c0c0c0;
+}
+
+div.vimiumHUD .hud-find {
+  background-color: transparent;
+  border: none;
+}
+
+div.vimiumHUD .vimiumHUDSearchArea {
+  background-color: transparent;
+}
