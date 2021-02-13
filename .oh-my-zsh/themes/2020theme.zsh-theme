@@ -79,7 +79,7 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "%{%f%}"
+  echo -n "%{%f%}\n"
   CURRENT_BG=''
 }
 
@@ -246,7 +246,6 @@ prompt_aws() {
 
 ## Main prompt
 build_prompt() {
-  echo '\n'
   RETVAL=$?
   prompt_status
   prompt_virtualenv

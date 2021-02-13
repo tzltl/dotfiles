@@ -48,6 +48,7 @@ colorscheme kuroi
 
 set termguicolors
 set cursorline
+set pumblend=10	
 highlight EndOfBuffer guibg=NONE
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 highlight Normal ctermbg=NONE guibg=NONE guifg=#c0c0c0
@@ -55,8 +56,11 @@ highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#00afaf guibg=NONE
 " highlight CursorLine guibg=#005050
 highlight CursorLineNr guibg=NONE guifg=#5fafff
 highlight SignColumn guibg=NONE
-highlight Pmenu  guibg=#000011 guifg=#d0d0d0
+" highlight Pmenu  guibg=#000011 guifg=#d0d0d0
+highlight Pmenu guibg=#006c6c guifg=#00bfbf
 highlight PmenuSel guifg=#00afaf guibg=#1c1c1c
+highlight NormalFloat guifg=#00afaf guibg=#1c1c1c
+" highlight PmenuSel guifg=#00afaf guibg=#1c1c1c
 highlight CocErrorHighlight gui=undercurl,bold guifg=#ff5f5f
 highlight CocErrorSign guifg=#c0c0c0
 highlight CocErrorFloat guifg=#d75f5f

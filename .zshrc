@@ -117,6 +117,12 @@ function chpwd() { ls -a }
 autoload -U compinit
 compinit
 
+# some more ls aliases
+alias ls="ls -GF"
+alias ll="ls -lGF"
+alias la="ls -aGF"
+alias l="ls -GF"
+alias lla="ls -alGF"
 alias n='nvim'
 alias c='clear'
 
@@ -173,6 +179,8 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+new_line_before_prompt=yes
 
 source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PYENV_ROOT="$HOME/.pyenv"
