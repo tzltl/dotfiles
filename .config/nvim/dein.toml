@@ -3,16 +3,28 @@ repo='Shougo/defx.nvim'
 depends = ['roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
 on_i = 1
 hook_add='''
+
+  call defx#custom#option('_', {
+      \ 'split': 'vertical',
+      \ 'direction': 'topleft',
+      \ 'show_ignored_files': 1,
+      \ 'toggle': 0,
+      \ 'resume': 1,
+      \ })
   nnoremap <silent>ff :<C-u>Defx -listed -resume
       \ -columns=indent:mark:icon:icons:filename:git:size
-      \ -buffer-name=tab`tabpagenr()`
+      \ `expand('%:p:h')` -search=`expand('%:p')` -split=floating<CR>
+
+  nnoremap <silent>ft :<C-u>Defx -listed -resume
+      \ -winwidth=30
+      \ -columns=indent:mark:icon:icons:filename:git:size
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
-  " nnoremap <silent>ff :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
+
   autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
 	  " Define mappings
     nnoremap <silent><buffer><expr> <CR>
-	  \ defx#do_action('open')
+    \ defx#do_action('multi', [['drop', 'vsplit'], 'quit'])
     nnoremap <silent><buffer><expr> c
 	  \ defx#do_action('copy')
 	  nnoremap <silent><buffer><expr> m
@@ -20,13 +32,17 @@ hook_add='''
 	  nnoremap <silent><buffer><expr> p
 	  \ defx#do_action('paste')
 	  nnoremap <silent><buffer><expr> l
-	  \ defx#do_action('open')
+    \ defx#do_action('drop', 'vsplit')
+	  nnoremap <silent><buffer><expr> L
+    \ defx#do_action('multi', [['drop', 'vsplit'], 'quit'])
 	  nnoremap <silent><buffer><expr> E
 	  \ defx#do_action('open', 'vsplit')
 	  nnoremap <silent><buffer><expr> P
 	  \ defx#do_action('preview')
 	  nnoremap <silent><buffer><expr> o
-	  \ defx#do_action('open_tree', 'toggle')
+    \ defx#do_action('drop')
+	  nnoremap <silent><buffer><expr> O
+    \ defx#do_action('multi',['drop', 'quit'])
 	  nnoremap <silent><buffer><expr> K
 	  \ defx#do_action('new_directory')
 	  nnoremap <silent><buffer><expr> N
@@ -95,8 +111,6 @@ repo = 'kristijanhusak/defx-icons'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
-[[plugins]]
-repo= 'junegunn/fzf'
 
 [[plugins]]
 repo= 'junegunn/fzf.vim'
