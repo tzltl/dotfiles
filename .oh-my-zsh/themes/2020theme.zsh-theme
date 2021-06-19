@@ -246,6 +246,7 @@ prompt_aws() {
 
 ## Main prompt
 build_prompt() {
+  echo "\n"
   RETVAL=$?
   prompt_status
   prompt_virtualenv
