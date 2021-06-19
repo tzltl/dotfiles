@@ -1,6 +1,14 @@
 {
-      "python.jediEnabled": false,
-      "clangd.path": "$HOME/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
+  "python.jediEnabled": false,
+  "clangd.path": "$HOME/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
 
-      "java.import.maven.enabled": true
+  "java.import.maven.enabled": true,
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    }
+  }
 }
