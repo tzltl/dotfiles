@@ -1,33 +1,11 @@
 [[plugins]]
-repo = 'zchee/deoplete-clang'
-on_ft = ['c', 'cpp', 'cmake']
-hook_source = '''
-    let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-    let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-    let g:deoplete#sources#clang#sort_algo = 'priority'
-    let g:deoplete#sources#clang#clang_complete_database="./build/"
-'''
-depends = ['deoplete.nvim']
+repo = 'yuezk/vim-js'
+on_ft = ['javascript', 'javascript.jsx','typescript', 'typescript.tsx','typescriptreact']
 
 
 [[plugins]]
-repo = "rhysd/vim-clang-format"
-on_ft = "cpp"
-hook_add = ''' 
-colorscheme space-vim-dark
-let g:clang_format#code_style = 'Google'
-autocmd BufWrite *.{cpp} :ClangFormat 
-command! C !g++ %:S -o %:r:S 
-'''
-
-#[[plugins]]
-#repo = 'yuezk/vim-js'
-#on_ft = ['javascript', 'javascript.jsx','typescript', 'typescript.tsx','typescriptreact']
-
-
-#[[plugins]]
-#repo = 'maxmellon/vim-jsx-pretty'
-#on_ft = ['javascript', 'javascript.jsx','typescript', 'typescript.tsx','typescriptreact']
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['javascript', 'javascript.jsx','typescript', 'typescript.tsx','typescriptreact']
 
 
 [[plugins]]
@@ -47,4 +25,3 @@ hook_add='''
 let g:preview_markdown_parser='glow'
 let g:preview_markdown_vertical=1
 '''
-
