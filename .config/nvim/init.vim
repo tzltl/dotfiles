@@ -24,6 +24,8 @@ if dein#check_install()
   call dein#install()
 endif
 
+""""""""""""""""""""""""""""""""""
+""" Setting
 filetype plugin indent on
 syntax enable
 
@@ -49,30 +51,6 @@ colorscheme kuroi
 set termguicolors
 set cursorline
 set pumblend=10	
-highlight EndOfBuffer guibg=NONE
-highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-highlight Normal ctermbg=NONE guibg=NONE guifg=#c0c0c0
-highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#00afaf guibg=NONE
-" highlight CursorLine guibg=#005050
-highlight CursorLineNr guibg=NONE guifg=#5fafff
-highlight SignColumn guibg=NONE
-" highlight Pmenu  guibg=#000011 guifg=#d0d0d0
-highlight Pmenu guibg=#006c6c guifg=#00bfbf
-highlight PmenuSel guifg=#00afaf guibg=#1c1c1c
-highlight NormalFloat guifg=#00afaf guibg=#1c1c1c
-" highlight PmenuSel guifg=#00afaf guibg=#1c1c1c
-highlight CocErrorHighlight gui=undercurl,bold guifg=#ff5f5f
-highlight CocErrorSign guifg=#c0c0c0
-highlight CocErrorFloat guifg=#d75f5f
-" highlight DefxIconsDirectory guifg=#87afff
-" highlight Defx_filename_directory guifg=#00afaf
-" highlight Search guibg=#5fafaf
-
-"""""""""""""""""  TeX 
-" highlight Special guifg=#afaf00
-" highlight texType guifg=#afd700
-" highlight Statement guifg=#87afd7
-"""""""""""""""""""""""
 
 "オートインデント
 set autoindent
@@ -157,9 +135,6 @@ set splitright
 set splitbelow
 
 set noshowmode
-
-""""""""""""""""""""""""""""""
-
 "カーソル移動
 nnoremap j gj
 nnoremap k gk
@@ -201,3 +176,33 @@ endif
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left>
 inoremap (<Enter> ()<Left>
+
+" fzf Setting
+set rtp+=/usr/local/opt/fzf
+
+""""""""""""""""" Color """""""""""""""""""""""
+highlight EndOfBuffer guibg=NONE
+highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+highlight Normal ctermbg=NONE guibg=NONE guifg=#c0c0c0
+highlight LineNr cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#00afaf guibg=NONE
+" highlight CursorLine guibg=#005050
+highlight CursorLineNr guibg=NONE guifg=#5fafff
+highlight SignColumn guibg=NONE
+" highlight Pmenu  guibg=#000011 guifg=#d0d0d0
+highlight Pmenu guibg=#006c6c guifg=#00bfbf
+highlight PmenuSel guifg=#00afaf guibg=#1c1c1c
+highlight NormalFloat guifg=#00afaf guibg=#1c1c1c
+" highlight PmenuSel guifg=#00afaf guibg=#1c1c1c
+highlight CocErrorHighlight gui=undercurl,bold guifg=#ff5f5f
+highlight CocErrorSign guifg=#c0c0c0
+highlight CocErrorFloat guifg=#d75f5f
+" highlight DefxIconsDirectory guifg=#87afff
+" highlight Defx_filename_directory guifg=#00afaf
+" highlight Search guibg=#5fafaf
+
+"""""""""""""""""  TeX 
+" highlight Special guifg=#afaf00
+" highlight texType guifg=#afd700
+" highlight Statement guifg=#87afd7
+""""""""""""""""""""""""""""""
+

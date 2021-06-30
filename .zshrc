@@ -123,7 +123,7 @@ alias ll="ls -lGF"
 alias la="ls -aGF"
 alias l="ls -GF"
 alias lla="ls -alGF"
-alias n='nvim'
+alias vim='nvim'
 alias c='clear'
 
 prompt_context(){}

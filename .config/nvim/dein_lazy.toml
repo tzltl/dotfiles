@@ -17,7 +17,6 @@ on_ft = ['typescript', 'typescript.tsx']
 repo='peitalin/vim-jsx-typescript'
 on_ft = ['typescript', 'typescript.tsx']
 
-
 [[plugins]]
 repo='skanehira/preview-markdown.vim'
 on_ft='md'
