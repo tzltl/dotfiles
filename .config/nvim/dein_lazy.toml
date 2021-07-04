@@ -10,12 +10,8 @@ on_ft = ['javascript', 'javascript.jsx','typescript', 'typescript.tsx','typescri
 
 [[plugins]]
 repo='leafgarland/typescript-vim'
-on_ft = ['typescript', 'typescript.tsx']
+on_ft = ['javascript', 'javascript.jsx','typescript', 'typescript.tsx','typescriptreact']
 
-
-[[plugins]]
-repo='peitalin/vim-jsx-typescript'
-on_ft = ['typescript', 'typescript.tsx']
 
 [[plugins]]
 repo='skanehira/preview-markdown.vim'

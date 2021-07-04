@@ -2,10 +2,13 @@
   "python.jediEnabled": false,
   "clangd.path": "$HOME/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
 
+  "tsserver.enableJavascript": false,
   "tsserver.tsdk": ".yarn/sdks/typescript/lib",
   "eslint.packageManager": "yarn",
   "eslint.nodePath": ".yarn/sdks",
+  "eslint.filetypes": ["javascript", "vue"],
+  "eslint.autoFixOnSave": true,
+  "eslint.autoFix": true,
 
-  "tsserver.enableJavascript": false,
   "java.import.maven.enabled": true
 }
