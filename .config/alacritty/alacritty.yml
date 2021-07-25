@@ -1,4 +1,7 @@
 # Colors (One Dark)
+#
+#
+#
 colors:
   # Default colors
   primary:
@@ -43,6 +46,10 @@ background_opacity: 0.7
 window:
   decorations: None
   dimensions:
-    columns: 356
-    lines: 95
+   # For 4K display
+    # columns: 356
+    # lines: 95
+   # For MBP display
+    columns: 202
+    lines: 62
 

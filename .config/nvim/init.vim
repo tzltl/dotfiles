@@ -135,6 +135,25 @@ set splitright
 set splitbelow
 
 set noshowmode
+
+let mapleader = "\<Space>"
+
+""" COC Setting
+nnoremap <Leader>n :call CocAction('diagnosticNext')<CR>
+nnoremap <Leader>p :call CocAction('diagnosticPrevious')<CR>
+
+""" Easy Motion Setting
+
+" s{char}{char} to move to {char}{char}
+nmap f <Plug>(easymotion-overwin-f2)
+" Move to line
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+
 "カーソル移動
 nnoremap j gj
 nnoremap k gk

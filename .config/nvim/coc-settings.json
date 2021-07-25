@@ -6,9 +6,10 @@
   "tsserver.tsdk": ".yarn/sdks/typescript/lib",
   "eslint.packageManager": "yarn",
   "eslint.nodePath": ".yarn/sdks",
-  "eslint.filetypes": ["javascript", "vue"],
+  "eslint.filetypes": ["javascript", "vue", "typescript", "typescriptreact"],
   "eslint.autoFixOnSave": true,
   "eslint.autoFix": true,
-
-  "java.import.maven.enabled": true
+  "eslint.run":["onSave","onType"],
+  "java.import.maven.enabled": true,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "typescript", "typescriptreact"]
 }

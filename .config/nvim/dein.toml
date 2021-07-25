@@ -1,4 +1,12 @@
 [[plugins]]
+repo='tpope/vim-commentary'
+
+
+[[plugins]]
+repo='easymotion/vim-easymotion'
+
+
+[[plugins]]
 repo='Shougo/defx.nvim'
 depends = ['roxma/nvim-yarp','roxma/vim-hug-neovim-rpc']
 on_i = 1
@@ -400,3 +408,4 @@ hook_add='''
   " Resume latest coc list.
   nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 '''
+
