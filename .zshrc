@@ -128,48 +128,6 @@ alias c='clear'
 
 prompt_context(){}
 
-# Goolge Search
-google() {
-    local str opt
-    if [ $# != 0 ]; then
-        for i in $*; do
-            # $strが空じゃない場合、検索ワードを+記号でつなぐ(and検索)
-            str="$str${str:++}$i"
-        done
-        opt='search?num=100'
-        opt="${opt}&q=${str}"
-    fi
-    open -a Google\ Chrome http://www.google.com/$opt
-}
-
-# w3mで検索
-function search() {
-   local str opt
-   if [ $# != 0 ]; then
-       for i in $*; do
-           str="$str+$i"
-       done
-       str=`echo $str | sed 's/^\+//'`
-       opt='search?num=50&hl=ja&lr=lang_ja'
-       opt="${opt}&q=${str}"
-    fi
-    w3m http://www.google.co.jp/$opt
-}
-
-qiita() {
-    local str opt
-    if [ $# != 0 ]; then
-        for i in $*; do
-            # $strが空じゃない場合、検索ワードを+記号でつなぐ(and検索)
-            str="$str${str:++}$i"
-        done
-        opt='search?num=100'
-        opt="${opt}&q=${str}"
-    fi
-        open -a Google\ Chrome Edition http://qiita.com/$opt
-
-}
-
 function zle-line-init zle-keymap-select {
     VIM_NORMAL="%F{076}❮%F{076} NORMAL"
     VIM_INSERT="%F{037}❮%F{037} INSERT"
