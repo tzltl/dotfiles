@@ -5,11 +5,15 @@ if patched_font_in_use; then
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
 	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
 	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
+	TMUX_POWERLINE_SEPARATOR_LEFT=""
+	TMUX_POWERLINE_SEPARATOR_RIGHT=""
 else
 	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="◀"
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN="❮"
 	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD="▶"
 	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN="❯"
+	TMUX_POWERLINE_SEPARATOR_LEFT=""
+	TMUX_POWERLINE_SEPARATOR_RIGHT=""
 fi
 
 TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'235'}
@@ -29,31 +33,31 @@ if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 		#"ifstat_sys 30 255" \
 		"lan_ip 234 37 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
 		"wan_ip 234 37" \
-		"vcs_branch 37 234" \
-		"vcs_compare 67 234" \
-		"vcs_staged 64 234" \
-		"vcs_modified 34 234" \
-		"vcs_others 245 234" \
 	)
 fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
 		#"earthquake 3 0" \
-		"pwd 67 234" \
 		#"macos_notification_count 29 255" \
 		#"mailcount 9 255" \
-		"now_playing 234 37" \
-		#"cpu 240 136" \
+		# "now_playing 234 37" \
+		# "cpu 240 136" \
 		#"load 237 167" \
 		#"tmux_mem_cpu_load 234 136" \
-		"battery 67 234" \
+		# "battery 67 234" \
 		#"weather 37 255" \
 		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
 		#"xkb_layout 125 117" \
-		"date_day 37 234" \
-		"date 37 234 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"time 37 234 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		# "date_day 37 234" \
+		# "date 37 234 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		# "time 37 234 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		#"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		"vcs_modified 34 234" \
+		"pwd 67 234" \
+		"vcs_compare 67 234" \
+		"vcs_staged 64 234" \
+		"vcs_branch 37 234" \
+		"vcs_others 245 234" \
 	)
 fi

@@ -15,7 +15,7 @@ if dein#load_state('$HOME/.cache/dein')
  call dein#load_toml('$HOME/.config/nvim/dein.toml',{'lazy':0})
  call dein#load_toml('$HOME/.config/nvim/dein_lazy.toml',{'lazy':1})
 
- call dein#add('rafi/awesome-vim-colorschemes') 
+ call dein#add('rafi/awesome-vim-colorschemes')
  call dein#end()
  call dein#save_state()
 endif
@@ -33,7 +33,7 @@ set laststatus=2
 set t_Co=256
 "エンコーディング
 set encoding=utf-8
-scriptencoding utf-8 
+scriptencoding utf-8
 
 "カーソル位置表示
 set ruler
@@ -50,7 +50,7 @@ colorscheme kuroi
 
 set termguicolors
 set cursorline
-set pumblend=10	
+set pumblend=10
 
 "オートインデント
 set autoindent
@@ -83,7 +83,6 @@ set smartcase
 set wrapscan
 "置換の時gオプションをデフォルトで有効にする
 set gdefault
-
 
 "不可視文字の設定
 "set list
@@ -143,7 +142,6 @@ nnoremap <Leader>n :call CocAction('diagnosticNext')<CR>
 nnoremap <Leader>p :call CocAction('diagnosticPrevious')<CR>
 
 """ Easy Motion Setting
-
 " s{char}{char} to move to {char}{char}
 nmap f <Plug>(easymotion-overwin-f2)
 " Move to line
@@ -152,7 +150,6 @@ nmap <Leader>l <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-
 
 "カーソル移動
 nnoremap j gj
@@ -169,9 +166,6 @@ inoremap ;; <esc>
 
 "ノーマルモードのまま改行
 nnoremap <CR> A<CR><ESC>
-
-"Yで行末までヤンク
-nnoremap Y y$
 
 "ESCキー2度押しでハイライトの切り替え
 " nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
@@ -219,9 +213,8 @@ highlight CocErrorFloat guifg=#d75f5f
 " highlight Defx_filename_directory guifg=#00afaf
 " highlight Search guibg=#5fafaf
 
-"""""""""""""""""  TeX 
+"""""""""""""""""  TeX
 " highlight Special guifg=#afaf00
 " highlight texType guifg=#afd700
 " highlight Statement guifg=#87afd7
 """"""""""""""""""""""""""""""
-
